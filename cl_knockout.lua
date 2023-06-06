@@ -1,10 +1,10 @@
-QBCore = exports["qb-core"]:GetCoreObject()
+--QBCore = exports["qb-core"]:GetCoreObject() Doar daca e nevoie
 local knockedOut = false
 
 local function WakeUp(ped)
     if knockedOut then
         ClearTimecycleModifier()
-        lib.hideTextUI()
+--         lib.hideTextUI() Doar daca folositi ox_lib
         knockedOut = false
         SetEntityInvincible(ped, false)
     end
@@ -12,7 +12,7 @@ end
 
 local function KnockedOutLoop(ped)
     SetTimecycleModifier("hud_def_blur")
-    lib.showTextUI('You are currently knocked out..', {position = "top-center"})
+--     lib.showTextUI('You are currently knocked out..', {position = "top-center"}) Doar daca folositi ox_lib
     CreateThread(function()
         while knockedOut do
             Wait(100)
